@@ -1,0 +1,247 @@
+{
+  "name": "dicom-nifti-viewer",
+  "displayName": "DICOM Viewer & NIfTI Viewer for CT and MRI",
+  "description": "DICOM viewer and NIfTI viewer for CT and MRI scans in VS Code. Opens .dcm files, DICOM folders, .nii and .nii.gz with window presets, axial, coronal and sagittal views, HU under the cursor and a searchable tag table.",
+  "version": "0.1.0",
+  "publisher": "zovo",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#101820",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.90.0",
+    "node": ">=18"
+  },
+  "categories": [
+    "Visualization",
+    "Data Science",
+    "Other"
+  ],
+  "keywords": [
+    "dicom viewer",
+    "dicom",
+    "nifti viewer",
+    "nifti",
+    "nii",
+    "nii.gz",
+    "dcm",
+    "dicomdir",
+    "medical image viewer",
+    "medical imaging",
+    "ct",
+    "mri",
+    "ct scan",
+    "hounsfield",
+    "window level",
+    "radiology",
+    "neuroimaging",
+    "mpr",
+    "axial coronal sagittal",
+    "dicom tags",
+    "anonymization",
+    "phi check",
+    "rle",
+    "volume viewer",
+    "fmri",
+    "brain mri",
+    "deep learning",
+    "segmentation",
+    "image viewer",
+    "offline"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "dicomViewer.preview",
+        "displayName": "DICOM Viewer",
+        "selector": [
+          {
+            "filenamePattern": "*.dcm"
+          },
+          {
+            "filenamePattern": "*.dicom"
+          },
+          {
+            "filenamePattern": "*.nii"
+          },
+          {
+            "filenamePattern": "*.nii.gz"
+          },
+          {
+            "filenamePattern": "DICOMDIR"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "dicomViewer.openFolder",
+        "title": "Open Folder as DICOM Series",
+        "category": "DICOM Viewer"
+      },
+      {
+        "command": "dicomViewer.openWalkthrough",
+        "title": "Get Started",
+        "category": "DICOM Viewer"
+      },
+      {
+        "command": "dicomViewer.openWith",
+        "title": "Open in DICOM Viewer",
+        "category": "DICOM Viewer"
+      },
+      {
+        "command": "dicomViewer.supportDeveloper",
+        "title": "Support the developer",
+        "category": "DICOM Viewer"
+      },
+      {
+        "command": "dicomViewer.moreViewers",
+        "title": "More free viewers",
+        "category": "DICOM Viewer"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "dicomViewer.openFolder",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation@9"
+        },
+        {
+          "command": "dicomViewer.openWith",
+          "when": "!explorerResourceIsFolder && resourceFilename =~ /\\.(dcm|dicom|ima|nii|nii\\.gz)$|^DICOMDIR$/i",
+          "group": "navigation@9"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "dicomViewer.openWith",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DICOM Viewer",
+      "properties": {
+        "dicomViewer.maxFileMB": {
+          "type": "number",
+          "default": 1024,
+          "minimum": 1,
+          "maximum": 4096,
+          "description": "Files and folders up to this size are read (for .nii.gz, the unpacked size). Larger ones show a message and are not read."
+        },
+        "dicomViewer.defaultView": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "axial",
+            "coronal",
+            "sagittal"
+          ],
+          "default": "auto",
+          "enumDescriptions": [
+            "The plane the slices were stored in",
+            "Axial",
+            "Coronal",
+            "Sagittal"
+          ],
+          "description": "View shown when a scan opens."
+        },
+        "dicomViewer.smoothing": {
+          "type": "boolean",
+          "default": false,
+          "description": "Smooth pixels when the image is zoomed. Off shows the real pixel grid."
+        },
+        "dicomViewer.askForRating": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ask one time for a Marketplace rating after you have used DICOM Viewer for a few days. You can answer \"Later\" or \"Don't ask again\". Nothing is sent anywhere."
+        },
+        "dicomViewer.showSupportLinks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the small Sponsor and More free viewers links at the bottom of the viewer. The change shows in files you open next. Nothing is sent anywhere."
+        }
+      }
+    },
+    "walkthroughs": [
+      {
+        "id": "dicomViewer.start",
+        "title": "Get started with DICOM Viewer",
+        "description": "Open CT and MRI scans in VS Code, set the window and check tags.",
+        "steps": [
+          {
+            "id": "open",
+            "title": "Open a scan",
+            "description": "Click a .dcm, .nii or .nii.gz file, or a DICOMDIR. For a folder of slices, right-click the folder and pick Open Folder as DICOM Series.\n[Open a DICOM folder](command:dicomViewer.openFolder)",
+            "media": {
+              "image": "images/chest-ct.png",
+              "altText": "A chest CT phantom in DICOM Viewer with the lung window and the tag table."
+            },
+            "completionEvents": [
+              "onCommand:dicomViewer.openFolder"
+            ]
+          },
+          {
+            "id": "window",
+            "title": "Window, slices and views",
+            "description": "Drag on the image to change width and level, or press 1 to 4 for the CT brain, soft tissue, lung and bone presets. Scroll to move through slices. Press A, C or S for axial, coronal and sagittal.",
+            "media": {
+              "markdown": "walkthrough/window.md"
+            }
+          },
+          {
+            "id": "tags",
+            "title": "Tags and the anonymity check",
+            "description": "Search the tag table by tag, name or value. A yellow bar warns when Patient's Name or Patient ID is filled.",
+            "media": {
+              "markdown": "walkthrough/tags.md"
+            }
+          },
+          {
+            "id": "export",
+            "title": "Export a slice",
+            "description": "Export PNG saves the slice you see, with your window, at its real proportions.",
+            "media": {
+              "markdown": "walkthrough/export.md"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node scripts/build.js --production",
+    "test": "node scripts/build.js --production && node --test \"test/*.test.js\"",
+    "samples": "node scripts/make-samples.js samples",
+    "package": "npm run build && npx -y @vscode/vsce package --no-dependencies -o dist/"
+  },
+  "devDependencies": {
+    "dicom-parser": "1.8.21",
+    "esbuild": "0.28.2",
+    "fflate": "0.8.3",
+    "nifti-reader-js": "0.8.1"
+  },
+  "homepage": "https://github.com/theluckystrike/dicom-nifti-viewer-vscode#readme",
+  "bugs": {
+    "url": "https://github.com/theluckystrike/dicom-nifti-viewer-vscode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/dicom-nifti-viewer-vscode"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/theluckystrike"
+  }
+}

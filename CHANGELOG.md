@@ -1,0 +1,10 @@
+# Changelog
+
+## 0.1.0 (2026-11-06)
+
+- First release. Opens DICOM files, DICOMDIR and DICOM folders, `.nii` and `.nii.gz`.
+- Implicit and explicit VR, big endian, deflated and RLE Lossless DICOM. Compressed JPEG, JPEG-LS, JPEG 2000 and HTJ2K files open with their tags and a message.
+- CT brain, soft tissue, lung and bone presets, drag to set the window, axial, coronal and sagittal views, zoom and pan.
+- Value and HU under the cursor, a searchable tag table and the anonymity check for Patient's Name and Patient ID.
+- Export the current slice as PNG.
+- Sponsor and More free viewers links under the image (setting `dicomViewer.showSupportLinks`).
