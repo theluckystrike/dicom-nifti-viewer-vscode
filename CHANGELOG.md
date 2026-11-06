@@ -8,3 +8,5 @@
 - Value and HU under the cursor, a searchable tag table and the anonymity check for Patient's Name and Patient ID.
 - Export the current slice as PNG.
 - Sponsor and More free viewers links under the image (setting `dicomViewer.showSupportLinks`).
+- The "More free viewers" list and the README list now show the 15 Zovo extensions on the Marketplace under their current names, and 11 that are coming soon.
+- Extensions for related files now come first, starting with HDF5 & NetCDF Explorer (H5 Viewer).
