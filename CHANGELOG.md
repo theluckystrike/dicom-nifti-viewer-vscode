@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 (2026-11-07)
+
+- The Marketplace name is now "DICOM Viewer, MRI Viewer & CT Viewer (NIfTI)" (it was "DICOM Viewer & NIfTI Viewer for CT and MRI"). The extension id, commands and settings stay the same.
+
 ## 0.1.2 (2026-11-07)
 
 - The Marketplace description now starts with "DICOM viewer, NIfTI viewer and MRI viewer for VS Code".

@@ -1,4 +1,4 @@
-# DICOM Viewer & NIfTI Viewer for CT and MRI
+# DICOM Viewer, MRI Viewer & CT Viewer (NIfTI)
 
 Open CT and MRI scans in VS Code (single `.dcm` files, DICOM folders, `.nii` and `.nii.gz`) and scroll, window and inspect them without leaving the editor.
 
