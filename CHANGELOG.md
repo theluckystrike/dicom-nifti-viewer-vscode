@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 (2026-11-07)
+
+- The Marketplace description now starts with "DICOM viewer, NIfTI viewer and MRI viewer for VS Code".
+- Marketplace search keywords updated, with the phrases people search for first.
+
 ## 0.1.1 (2026-11-07)
 
 - "More free viewers" now starts with the Zovo extensions most related to this one. Picking one opens its Marketplace page, where you choose to install it.
