@@ -58,7 +58,8 @@ test('HTML: strict CSP, nonce script, escaped title, footer can be hidden', () =
   assert.match(h, /default-src 'none'/);
   assert.match(h, /script-src 'nonce-abc'/);
   assert.doesNotMatch(h, /unsafe-inline|unsafe-eval|connect-src/);
-  assert.doesNotMatch(h.replace(/https:\/\/x/g, ''), /https?:\/\//);
+  // The only remote URL is the footer's Rate link to this listing's Marketplace review page (a plain link).
+  assert.doesNotMatch(h.replace(/https:\/\/x/g, '').replace(/https:\/\/marketplace\.visualstudio\.com\/items\?itemName=zovo\.dicom-nifti-viewer[^"]*/g, ''), /https?:\/\//);
   assert.match(h, /&lt;img src=x onerror=alert\(1\)&gt;\.dcm/);
   assert.match(h, /command:dicomViewer\.supportDeveloper/);
   assert.doesNotMatch(buildHtml({ cspSource: 'x', scriptUri: 'y', styleUri: 'z', title: 't', showSupportLinks: false }), /zovo-support/);

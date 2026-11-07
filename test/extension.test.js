@@ -69,7 +69,7 @@ test('activate registers the editor and commands; manifest matches', () => {
   assert.deepEqual([...vscodeMock.commands.list.keys()].sort(), ['dicomViewer.moreViewers', 'dicomViewer.openFolder', 'dicomViewer.openWalkthrough', 'dicomViewer.openWith', 'dicomViewer.supportDeveloper']);
   const pkg = require('../package.json');
   assert.equal(`${pkg.publisher}.${pkg.name}`, ext.EXT_ID);
-  assert.equal(pkg.version, '0.1.0');
+  assert.match(pkg.version, /^\d+\.\d+\.\d+$/); // monetize.py rollouts bump it
   assert.ok(pkg.displayName.length <= 45 && pkg.displayName.toLowerCase().startsWith('dicom viewer'));
   assert.ok(pkg.keywords.length <= 30);
   assert.deepEqual(pkg.contributes.customEditors[0].selector.map((s) => s.filenamePattern), ['*.dcm', '*.dicom', '*.nii', '*.nii.gz', 'DICOMDIR']);
