@@ -99,7 +99,7 @@ const LIVE = [
   ],
   [
     "zovo.ai-usage-meter",
-    "Claude Code Usage & Codex Usage Cost Meter",
+    "Claude Code Usage, Codex Usage & Gemini CLI Usage Meter",
     "shows Claude Code and Codex tokens and estimated cost from your local session files."
   ],
   [
@@ -118,6 +118,11 @@ const LIVE = [
     "opens Avro, Arrow and Feather files as a paged table."
   ],
   [
+    "zovo.eml-viewer",
+    "EML Viewer & MBOX Email Viewer",
+    "reads EML, EMLX and MBOX email files with remote images blocked."
+  ],
+  [
     "zovo.3d-model-viewer",
     "3D Model Viewer (GLB, glTF, STL, OBJ, PLY)",
     "views GLB, glTF, STL, OBJ, PLY and 3MF models."
@@ -126,6 +131,11 @@ const LIVE = [
     "zovo.zovo-pickle-viewer",
     "PKL Viewer & Pickle Viewer",
     "opens Python pickle files without Python and never runs their code."
+  ],
+  [
+    "zovo.dicom-nifti-viewer",
+    "DICOM Viewer & NIfTI Viewer for CT and MRI",
+    "opens CT and MRI scans, DICOM folders and NIfTI volumes with window presets and three views."
   ]
 ];
 const QUEUED = [
@@ -134,18 +144,6 @@ const QUEUED = [
     "Audio Preview & Loudness Meter",
     "plays audio files with a waveform, a spectrogram and LUFS loudness.",
     "https://github.com/theluckystrike/audio-preview-vscode"
-  ],
-  [
-    "zovo.eml-viewer",
-    "EML Viewer & MBOX Email Viewer",
-    "reads EML, EMLX and MBOX email files with remote images blocked.",
-    "https://github.com/theluckystrike/eml-viewer-vscode"
-  ],
-  [
-    "zovo.dicom-nifti-viewer",
-    "DICOM Viewer & NIfTI Viewer for CT and MRI",
-    "opens CT and MRI scans, DICOM folders and NIfTI volumes with window presets and three views.",
-    "https://github.com/theluckystrike/dicom-nifti-viewer-vscode"
   ],
   [
     "zovo.zip-archive-explorer",

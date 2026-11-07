@@ -2,7 +2,7 @@
   "name": "dicom-nifti-viewer",
   "displayName": "DICOM Viewer & NIfTI Viewer for CT and MRI",
   "description": "DICOM viewer and NIfTI viewer for CT and MRI scans in VS Code. Opens .dcm files, DICOM folders, .nii and .nii.gz with window presets, axial, coronal and sagittal views, HU under the cursor and a searchable tag table.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "zovo",
   "license": "MIT",
   "icon": "icon.png",
